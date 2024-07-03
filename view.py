@@ -14,9 +14,9 @@ class View(object):
                                color="blue", size=24)
 
         #Row 1
-        self._txtNmax = ft.TextField(label="N Max", width=100,
-                                     disabled=True, value=self._controller.getNmax())
-        self._txtMmax = ft.TextField(label="Tentativi Max", width=100,
+        self._txtNmax = ft.TextField(label="N Max", width=100,  # disabled mi definisce se posso scriverci oppure no, di solito è a False
+                                     disabled=True, value=self._controller.getNmax())  # il view non accede al modello
+        self._txtMmax = ft.TextField(label="Tentativi Max", width=100,          # quindi lo devo prendere dal controller
                                      disabled=True, value=self._controller.getMmax())
         self._txtMrim = ft.TextField(label="Tentativi Rim", width=100,
                                      disabled=True, value=self._controller.getMrim())
@@ -25,12 +25,13 @@ class View(object):
         #        alignment=ft.MainAxisAlignment.CENTER)
 
         #Row 2
-        self._txtTentativo = ft.TextField(label="Tentativo", width=100,disabled=True)
+        self._txtTentativo = ft.TextField(label="Tentativo", width=100, disabled=True)  # lo devo disabilitare finché non faccio nuova partita
         self._btnNuova = ft.ElevatedButton(text="Nuova Partita",
                                            on_click=self._controller.handleNuova)
         self._btnProva = ft.ElevatedButton(text="Prova",
                                            on_click=self._controller.handleProva,
-                                           disabled=True)
+                                           disabled=True)  # anche su prova disabled True perché altrimenti potrei
+        # giocare senza aver generato un segreto
 
         # row2 = ft.Row([self._btnNuova, self._txtTentativo, self._btnProva],
         #        alignment=ft.MainAxisAlignment.CENTER)

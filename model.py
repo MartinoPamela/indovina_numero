@@ -1,19 +1,21 @@
 import random
 
+# la logica è completamente qui nel modello
+
 
 class Model(object):
     def __init__(self):
-        self._NMax = 100 #fondo scala
-        self._Mmax = 6 #numero massimo di tentativi
+        self._NMax = 100  # fondo scala, cerco il numero tra 0 e 100
+        self._Mmax = 6  # numero massimo di tentativi
         self._Mrim = self._Mmax
-        self._segreto = None
+        self._segreto = None  # non lo conosco, lo inizializzerò ad ogni partita
 
     @property
     def segreto(self):
         return self._segreto
 
     @property
-    def NMax(self):
+    def NMax(self):  # non posso accedere direttamente a nmax perché è una variabile privata, quidni faccio una property
         return self._NMax
 
     @property
